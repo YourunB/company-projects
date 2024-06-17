@@ -17,7 +17,7 @@ body {
   font-family: Roboto;
   color: white;
   background: black;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 header {
@@ -133,6 +133,21 @@ a {
   font-size: 1.3rem;
 }
 
+.social-network {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+}
+
+.social-network__link {
+  transition: 0.7s;
+}
+
+.social-network__link img {
+  width: 30px;
+}
+
 @media (hover:hover) {
   .project:hover {
     transform: scale(1.01);
@@ -141,10 +156,18 @@ a {
   .project:hover::before {
     opacity: 0.3;
   }
+
+  .social-network__link:hover {
+    transform: scale(1.1);
+  }
 }
 
 .project:active {
   transform: scale(0.9);
+}
+
+.social-network__link:active {
+  transform: scale(1.1);
 }
 
 @keyframes slide-top {
@@ -183,7 +206,7 @@ a {
   nav {
     width: 100%;
   }
-  
+
   .menu {
     display: block;
   }
