@@ -25,6 +25,7 @@ header {
   background: white;
   transform: translateY(-100%);
   animation: 1s slide-top forwards linear;
+  height: 80px;
 }
 
 .wrapper,
@@ -34,6 +35,23 @@ footer {
   max-width: 1600px;
   width: 100%;
   padding: 10px;
+}
+
+main {
+  min-height: calc(100vh - 210px);
+}
+
+.wrapper {
+  height: 100%;
+}
+
+footer {
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 .wrapper {
@@ -100,6 +118,8 @@ a {
   overflow: hidden;
   border-radius: 2px;
   transition: 0.7s;
+  opacity: 0;
+  animation: show 1s linear forwards;
 }
 
 .project::before {
@@ -111,6 +131,28 @@ a {
   height: 100%;
   transition: 0.7s;
   background: linear-gradient(rgba(0, 0, 0, 0.5) 20%, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+}
+
+.project:nth-of-type(1) {
+  animation-delay: 0.3s;
+}
+.project:nth-of-type(2) {
+  animation-delay: 0.8s;
+}
+.project:nth-of-type(3) {
+  animation-delay: 0.4s;
+}
+.project:nth-of-type(4) {
+  animation-delay: 1s;
+}
+.project:nth-of-type(5) {
+  animation-delay: 0.6s;
+}
+.project:nth-of-type(6) {
+  animation-delay: 1.2s;
+}
+.project:nth-of-type(7) {
+  animation-delay: 0.5s;
 }
 
 .project__image {
@@ -133,11 +175,17 @@ a {
   font-size: 1.3rem;
 }
 
-.social-network {
+.social-network,
+.contacts {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 5px;
+  width: 100%;
+}
+
+.contacts {
+  gap: 30px;
 }
 
 .social-network__link {
@@ -146,6 +194,12 @@ a {
 
 .social-network__link img {
   width: 30px;
+}
+
+.company {
+  display: block;
+  text-align: center;
+  width: 100%;
 }
 
 @media (hover:hover) {
@@ -179,6 +233,15 @@ a {
   }
 }
 
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 @media (max-width: 1100px) {
   .projects-section {
     grid-template-columns: repeat(2, 1fr);
@@ -199,6 +262,14 @@ a {
 }
 
 @media (max-width: 545px) {
+  header {
+    height: 170px;
+  }
+
+  main {
+    min-height: calc(100vh - 300px);
+  }
+
   .wrapper {
     flex-wrap: wrap;
   }
