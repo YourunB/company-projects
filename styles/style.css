@@ -2,6 +2,13 @@
 
 html {
   scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit
 }
 
 body {
@@ -10,11 +17,14 @@ body {
   font-family: Roboto;
   color: white;
   background: black;
+  overflow: hidden;
 }
 
 header {
   color: #405952;
   background: white;
+  transform: translateY(-100%);
+  animation: 1s slide-top forwards linear;
 }
 
 .wrapper,
@@ -40,16 +50,6 @@ h1, h2 {
 a {
   color: inherit;
   text-decoration: inherit;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
 }
 
 .logo {
@@ -89,17 +89,17 @@ a {
 .projects-section {
   display: grid;
   gap: 20px;
-  aspect-ratio: 16 / 9;
   grid-template-columns: repeat(3, 1fr);
 }
 
 .project {
   position: relative;
   display: block;
+  aspect-ratio: 16 / 9;
   width: 100%;
   overflow: hidden;
   border-radius: 2px;
-  transition: 0.7s
+  transition: 0.7s;
 }
 
 .project::before {
@@ -122,18 +122,20 @@ a {
 .project__title {
   position: absolute;
   z-index: 10;
-  bottom: 20px;
+  bottom: 10px;
   left: 10px;
 }
 
 .project:nth-of-type(4),
 .project:last-of-type {
   grid-column: span 2;
+  aspect-ratio: 32 / 9;
+  font-size: 1.3rem;
 }
 
 @media (hover:hover) {
   .project:hover {
-    transform: scale(1.02);
+    transform: scale(1.01);
   }
 
   .project:hover::before {
@@ -145,3 +147,30 @@ a {
   transform: scale(0.9);
 }
 
+@keyframes slide-top {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1100px) {
+  .projects-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .project:nth-of-type(4),
+  .project:last-of-type {
+    aspect-ratio: 16 / 9;
+    grid-column: span 1;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 680px) {
+  .projects-section {
+    grid-template-columns: 1fr;
+  }
+}
