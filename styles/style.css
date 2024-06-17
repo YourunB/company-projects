@@ -8,17 +8,38 @@ body {
   margin: 0;
   padding: 0;
   font-family: Roboto;
+  color: white;
+  background: black;
 }
 
-header,
+header {
+  color: #405952;
+  background: white;
+}
+
+.wrapper,
 main,
 footer {
+  margin: auto;
   max-width: 1600px;
   width: 100%;
+  padding: 10px;
+}
+
+.wrapper {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
 }
 
 h1, h2 {
   font-family: Raleway;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
 }
 
 * {
@@ -30,3 +51,22 @@ h1, h2 {
 *:after {
   box-sizing: inherit;
 }
+
+.logo {
+  display: block;
+  max-width: 120px;
+  width: 100%;
+}
+
+.logo img {
+  width: 100%;
+}
+
+.menu {
+  list-style-type: none;
+  display: flex;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+
